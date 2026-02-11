@@ -1,13 +1,10 @@
 package ru.netology.qa;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selectors;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
-import ru.netology.qa.Generator;
-import com.github.javafaker.Faker;
 
 import java.time.Duration;
 
@@ -46,7 +43,7 @@ class DeliveryTest {
                 .shouldBe(visible, Duration.ofSeconds(15))
                 .shouldHave(Condition.text("У вас уже запланирована встреча на другую дату. Перепланировать?"));
         $(".button_view_extra").click();
-        $("[data-test-id='success-notification'] .notification__content")
+        $("[data-test-id='success-notification']")
                 .shouldBe(visible, Duration.ofSeconds(15))
                 .shouldHave(Condition.text("Встреча успешно запланирована на " + secondMeetingDate));
     }
