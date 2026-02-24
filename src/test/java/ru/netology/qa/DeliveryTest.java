@@ -1,20 +1,31 @@
 package ru.netology.qa;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
 import java.time.Duration;
-
+import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 class DeliveryTest {
+    @BeforeAll
+     static void allSetup() {
+        // Указываем путь к скачанному драйверу
+        System.setProperty("webdriver.chrome.driver", "C:/tools/chromedriver.exe");
+
+        // Если используете Selenide, можно также явно указать браузер
+        Configuration.browser = "chrome";
+    }
 
     @BeforeEach
     void setup() {
+//        System.setProperty("webdriver.chrome.driver", "C:/tools/chromedriver.exe");
         open("http://localhost:9999");
     }
 
