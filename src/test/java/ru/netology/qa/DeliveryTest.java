@@ -14,18 +14,8 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 class DeliveryTest {
-    @BeforeAll
-     static void allSetup() {
-        // Указываем путь к скачанному драйверу
-        System.setProperty("webdriver.chrome.driver", "C:/tools/chromedriver.exe");
-
-        // Если используете Selenide, можно также явно указать браузер
-        Configuration.browser = "chrome";
-    }
-
     @BeforeEach
     void setup() {
-//        System.setProperty("webdriver.chrome.driver", "C:/tools/chromedriver.exe");
         open("http://localhost:9999");
     }
 
